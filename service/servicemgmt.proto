@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+
+package servicemgmt;
+
+option go_package = "github.com/sanjai3102001/grpc_service/grpc_sql_user_server;go_servicemgmt_grpc";
+
+service serviceManagement {
+  rpc CreateNewservice (Newservice) returns (service) {}
+  rpc Getservices (GetservicesParams) returns (servicesList) {}
+}
+
+message Newservice {
+  int32 service_id = 1;
+  string email = 2;
+  int32 IsActive = 3;
+}
+
+message service {
+  int32 service_id = 1;
+  string email = 2;
+  int32 IsActive = 3; 
+}
+
+message GetservicesParams {
+
+}
+
+message servicesList {
+  repeated service services = 1; 
+}
+
+

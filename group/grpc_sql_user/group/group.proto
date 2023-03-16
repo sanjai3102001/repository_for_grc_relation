@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+
+package usermgmt;
+
+option go_package = "github.com/tech-with-moss/go-usermgmt-grpc;go_usermgmt_grpc";
+
+service UserManagement {
+  rpc CreateNewUser (NewUser) returns (User) {}
+  rpc GetUsers (GetUsersParams) returns (UsersList) {}
+}
+
+message NewUser {
+  int32 group_id = 1;
+  string name = 2;
+  int32 member = 3;
+  int32 admin = 4;
+  int32  service_id = 5; 
+}
+
+message User {
+  int32 group_id = 1;
+  string name = 2;
+  int32 member = 3;
+  int32 admin = 4;
+  int32  service_id = 5;  
+}
+
+message GetUsersParams {
+
+}
+
+message UsersList {
+  repeated User users = 1; 
+}
+
